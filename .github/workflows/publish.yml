@@ -33,3 +33,5 @@ jobs:
 
       - name: Publish package
         run: mvn -B -ntp deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
