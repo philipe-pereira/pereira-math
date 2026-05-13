@@ -12,15 +12,15 @@ import javax.swing.Icon;
 
 import br.com.pereiraeng.math.expression.continuous.Binario;
 import br.com.pereiraeng.math.expression.continuous.Constante;
+import br.com.pereiraeng.math.expression.continuous.Constante.Const;
 import br.com.pereiraeng.math.expression.continuous.N_ario;
 import br.com.pereiraeng.math.expression.continuous.Operador;
+import br.com.pereiraeng.math.expression.continuous.Operador.TipoOperador;
 import br.com.pereiraeng.math.expression.continuous.Parametro;
 import br.com.pereiraeng.math.expression.continuous.Unario;
 import br.com.pereiraeng.math.expression.continuous.Valor;
 import br.com.pereiraeng.math.expression.continuous.Variavel;
 import br.com.pereiraeng.math.expression.continuous.VariavelIntermed;
-import br.com.pereiraeng.math.expression.continuous.Constante.Const;
-import br.com.pereiraeng.math.expression.continuous.Operador.TipoOperador;
 
 /**
  * Classe do objeto que representa uma função matemática que transforma números

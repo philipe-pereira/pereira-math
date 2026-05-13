@@ -5,12 +5,11 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import br.com.pereiraeng.core.collections.ArrayUtils;
 import br.com.pereiraeng.core.collections.map.MyEntry;
-
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 /**
  * <strong>D</strong>ifferent <strong>t</strong>ime <strong>D</strong>ata

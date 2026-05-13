@@ -2,9 +2,9 @@ package br.com.pereiraeng.math.timeseries.esp;
 
 import java.util.Calendar;
 
-import br.com.pereiraeng.math.timeseries.RegP;
 import br.com.pereiraeng.core.ExtendedMath;
 import br.com.pereiraeng.core.TimeUtils;
+import br.com.pereiraeng.math.timeseries.RegP;
 
 /**
  * Classe do objeto que representa uma série de medições onde se é

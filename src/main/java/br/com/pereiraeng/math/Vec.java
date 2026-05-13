@@ -171,34 +171,6 @@ public class Vec {
 	}
 
 	/**
-	 * Função que retorna um novo vetor com seus valores elevados a um dado expoente
-	 * 
-	 * @param in vetor a ser elevado a uma dada potência
-	 * @param p  expoente
-	 * @return vetor com os resultados
-	 */
-	public static float[] pow(float[] in, int p) {
-		float[] out = new float[in.length];
-		for (int i = 0; i < in.length; i++)
-			out[i] = (float) Math.pow(in[i], p);
-		return out;
-	}
-
-	/**
-	 * Função que retorna um novo vetor com a raiz quadrada de cada um de seus
-	 * componentes
-	 * 
-	 * @param in vetor contendo os valores
-	 * @return vetor com contendo a raiz quadrada dos valores
-	 */
-	public static float[] sqrt(float[] in) {
-		float[] out = new float[in.length];
-		for (int i = 0; i < in.length; i++)
-			out[i] = (float) Math.sqrt(in[i]);
-		return out;
-	}
-
-	/**
 	 * Função que efetua a subtração termo a termo de dois vetores
 	 * 
 	 * @param a vetor minuendo
@@ -223,6 +195,34 @@ public class Vec {
 		float[] out = new float[a.length];
 		for (int i = 0; i < out.length; i++)
 			out[i] = a[i] - b[i];
+		return out;
+	}
+
+	/**
+	 * Função que efetua a subtração de dois vetores de elementos inteiros
+	 * 
+	 * @param a vetor minuendo
+	 * @param b vetor subtraendo
+	 * @return vetor diferença
+	 */
+	public static int[] sub(int[] a, int[] b) {
+		int[] out = new int[a.length];
+		for (int i = 0; i < out.length; i++)
+			out[i] = a[i] - b[i];
+		return out;
+	}
+
+	/**
+	 * Função que efetua a subtração de dois vetores de elementos inteiros
+	 * 
+	 * @param a vetor minuendo
+	 * @param b vetor subtraendo
+	 * @return vetor diferença
+	 */
+	public static double[][] sub(double[][] a, double[][] b) {
+		double[][] out = new double[a.length][];
+		for (int i = 0; i < out.length; i++)
+			out[i] = sub(a[i], b[i]);
 		return out;
 	}
 
@@ -330,20 +330,6 @@ public class Vec {
 	}
 
 	/**
-	 * Função que efetua a subtração de dois vetores de elementos inteiros
-	 * 
-	 * @param a vetor minuendo
-	 * @param b vetor subtraendo
-	 * @return vetor diferença
-	 */
-	public static int[] sub(int[] a, int[] b) {
-		int[] out = new int[a.length];
-		for (int i = 0; i < out.length; i++)
-			out[i] = a[i] - b[i];
-		return out;
-	}
-
-	/**
 	 * Função que efetua a subtração de um número menos um vetor de elementos
 	 * inteiros
 	 * 
@@ -413,6 +399,34 @@ public class Vec {
 		float[] out = new float[a.length];
 		for (int i = 0; i < out.length; i++)
 			out[i] = Math.min(a[i], b[i]);
+		return out;
+	}
+
+	/**
+	 * Função que retorna um novo vetor com seus valores elevados a um dado expoente
+	 * 
+	 * @param in vetor a ser elevado a uma dada potência
+	 * @param p  expoente
+	 * @return vetor com os resultados
+	 */
+	public static float[] pow(float[] in, int p) {
+		float[] out = new float[in.length];
+		for (int i = 0; i < in.length; i++)
+			out[i] = (float) Math.pow(in[i], p);
+		return out;
+	}
+
+	/**
+	 * Função que retorna um novo vetor com a raiz quadrada de cada um de seus
+	 * componentes
+	 * 
+	 * @param in vetor contendo os valores
+	 * @return vetor com contendo a raiz quadrada dos valores
+	 */
+	public static float[] sqrt(float[] in) {
+		float[] out = new float[in.length];
+		for (int i = 0; i < in.length; i++)
+			out[i] = (float) Math.sqrt(in[i]);
 		return out;
 	}
 
@@ -493,14 +507,14 @@ public class Vec {
 	/**
 	 * Função que retorna a norma de um vetor
 	 * 
-	 * @param a
+	 * @param a      vetor de double float
 	 * @param metric
 	 *               <ol>
 	 *               <li>Manhattan distance;</i>
 	 *               <li>Euclidean distance;</i>
 	 *               <li value="2147483647">Max norm.</i>
 	 *               </ol>
-	 * @return
+	 * @return norma do vetor
 	 */
 	public static double norma(double[] a, int metric) {
 		switch (metric) {
@@ -524,6 +538,18 @@ public class Vec {
 		}
 	}
 
+	/**
+	 * Função que retorna a norma de um vetor
+	 * 
+	 * @param a      vetor de single float
+	 * @param metric
+	 *               <ol>
+	 *               <li>Manhattan distance;</i>
+	 *               <li>Euclidean distance;</i>
+	 *               <li value="2147483647">Max norm.</i>
+	 *               </ol>
+	 * @return norma do vetor
+	 */
 	public static float norma(float[] a, int metric) {
 		switch (metric) {
 		case 2:
@@ -546,6 +572,18 @@ public class Vec {
 		}
 	}
 
+	/**
+	 * Função que retorna a norma de um vetor
+	 * 
+	 * @param a      vetor de números complexos
+	 * @param metric
+	 *               <ol>
+	 *               <li>Manhattan distance;</i>
+	 *               <li>Euclidean distance;</i>
+	 *               <li value="2147483647">Max norm.</i>
+	 *               </ol>
+	 * @return norma do vetor
+	 */
 	public static double norma(Complex[] a, int metric) {
 		return norma(Complex.norma(a), metric);
 	}
@@ -563,6 +601,13 @@ public class Vec {
 		return Math.sqrt(out);
 	}
 
+	/**
+	 * Função que retorna a norma euclidiana de um vetor
+	 * 
+	 * @param a vetor de números single float
+	 * @return a raiz quadrada da soma do quadrados dos módulos das coordenadas do
+	 *         vetor
+	 */
 	public static float norma(float[] a) {
 		double out = 0.;
 		for (int i = 0; i < a.length; i++)
@@ -573,7 +618,7 @@ public class Vec {
 	/**
 	 * Função que retorna a norma euclidiana de um vetor
 	 * 
-	 * @param a vetor
+	 * @param a vetor de números complexos
 	 * @return a raiz quadrada da soma do quadrados dos módulos das coordenadas do
 	 *         vetor
 	 */
@@ -581,6 +626,20 @@ public class Vec {
 		double out = 0.;
 		for (int i = 0; i < a.length; i++)
 			out += Math.pow(a[i].getMod(), 2);
+		return Math.sqrt(out);
+	}
+
+	/**
+	 * Função que retorna a norma de Frobenius de uma matrix
+	 * 
+	 * @param a matrix
+	 * @return norma de Frobenius da matrix
+	 */
+	public static double norma(double[][] a) {
+		double out = 0.;
+		for (int i = 0; i < a.length; i++)
+			for (int j = 0; j < a[i].length; j++)
+				out += Math.pow(a[i][j], 2);
 		return Math.sqrt(out);
 	}
 
@@ -603,7 +662,7 @@ public class Vec {
 	}
 
 	public static void normatize(float[] a, int metric) {
-		float t = 1f / norma(a, metric);
+		final float t = 1f / norma(a, metric);
 		for (int i = 0; i < a.length; i++)
 			a[i] *= t;
 	}

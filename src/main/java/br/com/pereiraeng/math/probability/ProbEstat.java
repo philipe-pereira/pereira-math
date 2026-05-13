@@ -4,13 +4,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
-import br.com.pereiraeng.math.QuadFunc;
-import br.com.pereiraeng.math.Vec;
 import br.com.pereiraeng.core.ExtendedMath;
 import br.com.pereiraeng.core.collections.ArrayUtils;
+import br.com.pereiraeng.math.QuadFunc;
+import br.com.pereiraeng.math.Vec;
 
 /**
  * Conjunto de função matemáticas para cálculos de probabilidade e estatística

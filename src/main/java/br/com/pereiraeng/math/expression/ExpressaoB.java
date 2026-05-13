@@ -8,11 +8,11 @@ import java.util.regex.Pattern;
 
 import br.com.pereiraeng.math.expression.discret.OperadorB2B;
 import br.com.pereiraeng.math.expression.discret.OperadorV2B;
+import br.com.pereiraeng.math.expression.discret.OperadorV2B.TipoOperadorV2B;
 import br.com.pereiraeng.math.expression.discret.ValorB;
 import br.com.pereiraeng.math.expression.discret.VariavelB;
 import br.com.pereiraeng.math.expression.discret.VariavelIntermediariaB;
 import br.com.pereiraeng.math.expression.discret.VariavelNB;
-import br.com.pereiraeng.math.expression.discret.OperadorV2B.TipoOperadorV2B;
 import br.com.pereiraeng.math.expression.discret.VariavelNB.TypeValue;
 
 /**

@@ -2,8 +2,8 @@ package br.com.pereiraeng.math.timeseries.unit;
 
 import java.util.Calendar;
 
-import br.com.pereiraeng.math.timeseries.esp.MedDataType;
 import br.com.pereiraeng.core.TimeUtils;
+import br.com.pereiraeng.math.timeseries.esp.MedDataType;
 
 /**
  * Classe que representa uma dada medição para qual se obteve uma série de dados

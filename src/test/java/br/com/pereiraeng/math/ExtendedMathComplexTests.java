@@ -1,11 +1,8 @@
 package br.com.pereiraeng.math;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
-import br.com.pereiraeng.math.Complex;
-import br.com.pereiraeng.math.ExtendedMathComplex;
 
 class ExtendedMathComplexTests {
 

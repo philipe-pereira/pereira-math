@@ -6,18 +6,18 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-
-import br.com.pereiraeng.core.ExtendedMath;
-import br.com.pereiraeng.core.TimeUtils;
-import br.com.pereiraeng.core.collections.ListUtils;
-import br.com.pereiraeng.core.collections.MapUtils;
-
+import java.util.Map.Entry;
 import java.util.NavigableMap;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 
+import br.com.pereiraeng.core.ExtendedMath;
+import br.com.pereiraeng.core.Flow;
+import br.com.pereiraeng.core.TimeUtils;
+import br.com.pereiraeng.core.collections.ListUtils;
+import br.com.pereiraeng.core.collections.MapUtils;
 import br.com.pereiraeng.math.timeseries.unit.Med;
 import br.com.pereiraeng.math.timeseries.unit.Meds;
 
@@ -997,5 +997,96 @@ public class Reg extends SrT<Integer> {
 			}
 		}
 		return cont;
+	}
+	
+
+
+	// ------------------------------ FLOW ------------------------------
+
+	/**
+	 * Função que transfere os dados deste registro através de {@link Med blocos de
+	 * medições} para um outro objeto que interfaceia {@link Flow}
+	 * 
+	 * @param flow    objeto que receberá as medições
+	 * @param pos     posição dos dados neste registro
+	 * @param channel endereço portado pelos {@link Med blocos de medições}
+	 */
+	public void transfer(Flow<Med> flow, int pos, int channel) {
+		if (pos >= 0 && pos < length()) {
+			for (Entry<Integer, float[]> iv : this.entrySet()) {
+				Med m = new Med(TimeUtils.toCalendar(iv.getKey()), iv.getValue()[pos]);
+				m.setChannel(channel);
+				flow.incomingData(m);
+			}
+		}
+	}
+
+	/**
+	 * Função que transfere todos os dados deste registro através de {@link Med
+	 * blocos de medições} para um outro objeto que interfaceia {@link Flow}, sendo
+	 * que a medida que este registro é enviado, ele vai sendo apagado.
+	 * 
+	 * @param flow objeto que receberá as medições
+	 */
+	public void send(Flow<Meds> flow) {
+		Iterator<Entry<Integer, float[]>> it = entrySet().iterator();
+		Meds m = new Meds();
+		while (it.hasNext()) {
+			Entry<Integer, float[]> iv = it.next();
+
+			m.setTime(TimeUtils.toCalendar(iv.getKey()));
+			m.setValue(iv.getValue());
+
+			flow.incomingData(m);
+
+			it.remove();
+		}
+	}
+
+	public void sendMed(Flow<Med> flow, int... pos) {
+		Iterator<Entry<Integer, float[]>> it = entrySet().iterator();
+		Med m = new Med();
+		while (it.hasNext()) {
+			Entry<Integer, float[]> iv = it.next();
+
+			m.setTime(TimeUtils.toCalendar(iv.getKey()));
+
+			float[] values = iv.getValue();
+			for (int i = 0; i < values.length; i++) {
+				m.setValue(values[i]);
+				m.setChannel(pos.length == 0 ? i : pos[i]);
+
+				flow.incomingData(m);
+			}
+
+			it.remove();
+		}
+	}
+
+	public void sendMed(Flow<Med> flow, Collection<Set<Integer>> pos) {
+		if (pos.size() != this.length())
+			throw new IllegalArgumentException(
+					"A relação de posições não bate com o número de medições por instante de tempo");
+		Iterator<Entry<Integer, float[]>> it = entrySet().iterator();
+		Med m = new Med();
+		while (it.hasNext()) {
+			Entry<Integer, float[]> iv = it.next();
+
+			m.setTime(TimeUtils.toCalendar(iv.getKey()));
+
+			float[] values = iv.getValue();
+			Iterator<Set<Integer>> it2 = pos.iterator();
+			for (int i = 0; i < values.length; i++) {
+				m.setValue(values[i]);
+
+				Set<Integer> chs = it2.next();
+				for (Integer ch : chs) {
+					m.setChannel(ch);
+					flow.incomingData(m);
+				}
+			}
+
+			it.remove();
+		}
 	}
 }

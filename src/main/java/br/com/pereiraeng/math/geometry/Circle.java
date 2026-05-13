@@ -2,8 +2,8 @@ package br.com.pereiraeng.math.geometry;
 
 import java.awt.geom.Point2D;
 
-import br.com.pereiraeng.math.Vec;
 import br.com.pereiraeng.core.ExtendedMath;
+import br.com.pereiraeng.math.Vec;
 
 /**
  * Classe do objeto que representa um círculo

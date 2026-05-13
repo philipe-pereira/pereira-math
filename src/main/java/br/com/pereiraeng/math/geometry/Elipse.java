@@ -3,9 +3,8 @@ package br.com.pereiraeng.math.geometry;
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 
-
-import br.com.pereiraeng.math.Vec;
 import br.com.pereiraeng.core.ExtendedMath;
+import br.com.pereiraeng.math.Vec;
 
 public class Elipse {
 

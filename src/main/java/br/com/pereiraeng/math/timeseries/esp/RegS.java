@@ -2,8 +2,8 @@ package br.com.pereiraeng.math.timeseries.esp;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.core.collections.ArrayUtils;

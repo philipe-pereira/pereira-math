@@ -3,10 +3,18 @@ package br.com.pereiraeng.math.set;
 import java.util.Calendar;
 
 /**
+ * <p>
  * Classe dos objetos que representam um conjunto contínuo delimitado por dois
  * elementos, ou seja, um conjunto na forma:
+ * </p>
  * 
+ * <p>
  * X = {x in D | a < x < b}
+ * </p>
+ * 
+ * <p>
+ * Os intervalos podem ser abertos, fechados ou semi-abertos.
+ * </p>
  * 
  * @author Philipe PEREIRA
  *

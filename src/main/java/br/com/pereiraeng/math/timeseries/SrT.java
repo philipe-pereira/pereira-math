@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NavigableMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -15,9 +16,6 @@ import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.core.collections.ArrayUtils;
 import br.com.pereiraeng.core.collections.ListUtils;
 import br.com.pereiraeng.core.collections.MapUtils;
-
-import java.util.Map.Entry;
-
 import br.com.pereiraeng.math.Dupla;
 import br.com.pereiraeng.math.expression.Expressao;
 
@@ -832,8 +830,8 @@ public class SrT<T extends Number> extends TpD<T, float[]> {
 	 * 
 	 * @param <T>     classe do número que representa o instante de tempo
 	 * @param tempOut
-	 * @param arg1
-	 * @param pos
+	 * @param arg1    registro de medições
+	 * @param pos     posição no registro onde estão os elementos a serem operados
 	 * @param op      caractere indicando a operação, podendo ser:
 	 *                <ul>
 	 *                <li>{@link #SUM soma};</i>
@@ -842,7 +840,7 @@ public class SrT<T extends Number> extends TpD<T, float[]> {
 	 *                <li>{@link #DIV divisão};</i>
 	 *                <li>{@link #POWER potenciação}.</i>
 	 *                </ul>
-	 * @param arg2
+	 * @param arg2    argumento a ser operado com os registros
 	 */
 	public static <T extends Number> void operation(SrT<T> tempOut, SrT<T> arg1, int pos, char op, float arg2) {
 		operation(tempOut, arg1, pos, op, arg2, null, null);

@@ -285,6 +285,34 @@ public class Spline {
 		return t;
 	}
 
+	public static double[] getSpline(double x0, double y0, double yl0, double x1, double y1, double yl1) {
+		double[][] A = new double[4][4];
+
+		A[0][0] = 1.;
+		A[0][1] = x0;
+		A[0][2] = Math.pow(x0, 2);
+		A[0][3] = Math.pow(x0, 3);
+
+		A[1][0] = 0.;
+		A[1][1] = 1.;
+		A[1][2] = 2 * x0;
+		A[1][3] = 3 * Math.pow(x0, 2);
+
+		A[2][0] = 1.;
+		A[2][1] = x1;
+		A[2][2] = Math.pow(x1, 2);
+		A[2][3] = Math.pow(x1, 3);
+
+		A[3][0] = 0.;
+		A[3][1] = 1.;
+		A[3][2] = 2 * x1;
+		A[3][3] = 3 * Math.pow(x1, 2);
+
+		double[] b = { y0, yl0, y1, yl1 };
+
+		return Vec.solveGauss(A, b);
+	}
+
 	// ===============================================================================
 
 	public static void main(String[] args) {
@@ -310,6 +338,16 @@ public class Spline {
 		double[][] ms = getSplineLoop(x, y);
 
 		curva(ms[0], x, y, ms[1], ms[2]);
+
+		// --------------------------------------------------------------
+
+		// relé da GE T60
+		double[] pol = getSpline(2, 2 * .25, .25, 8, 8 * .9, .9);
+
+		System.out.println(Polynomial.p(pol, 2.));
+		System.out.println(Polynomial.p(pol, 8.));
+
+		System.out.println(Polynomial.toString(pol, 'x'));
 	}
 
 	private static void cdb(double x[], double y[], double m[]) {

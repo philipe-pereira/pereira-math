@@ -5,9 +5,10 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.SortedMap;
 import java.util.Map.Entry;
+import java.util.SortedMap;
 
+import br.com.pereiraeng.core.TimeUtils;
 import br.com.pereiraeng.math.timeseries.TpD;
 
 /**

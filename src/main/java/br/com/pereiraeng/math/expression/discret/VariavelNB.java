@@ -3,10 +3,10 @@ package br.com.pereiraeng.math.expression.discret;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-import br.com.pereiraeng.math.expression.Var;
 import br.com.pereiraeng.core.BinaryUtils;
 import br.com.pereiraeng.core.StringUtils;
 import br.com.pereiraeng.core.TimeUtils;
+import br.com.pereiraeng.math.expression.Var;
 
 /**
  * Objeto que representa um dado parâmetro da equação lógica, porém que não é um

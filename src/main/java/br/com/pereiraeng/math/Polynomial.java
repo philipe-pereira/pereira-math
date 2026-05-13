@@ -1,8 +1,13 @@
 package br.com.pereiraeng.math;
 
-import br.com.pereiraeng.math.probability.ProbEstat;
 import br.com.pereiraeng.core.ExtendedMath;
+import br.com.pereiraeng.math.probability.ProbEstat;
 
+/**
+ * Classe dos objetos que representam um polinômio
+ * 
+ * @author Philipe PEREIRA
+ */
 public class Polynomial {
 
 	/**
@@ -220,15 +225,15 @@ public class Polynomial {
 	 * @return <code>String</code> do polinômio
 	 */
 	public static String toString(double[] coef, char v) {
-		String s = "";
+		StringBuilder builder = new StringBuilder();
 
 		// termo independente e o de primeiro grau
-		s += String.format("%.3E + %.3E.%c", coef[0], coef[1], v);
+		builder.append(String.format("%.3E + %.3E.%c", coef[0], coef[1], v));
 
 		// demais termos
 		for (int i = 2; i < coef.length; i++)
-			s += String.format(" + %.3E.%c^%d", coef[i], v, i);
+			builder.append(String.format(" + %.3E.%c^%d", coef[i], v, i));
 
-		return s;
+		return builder.toString();
 	}
 }
