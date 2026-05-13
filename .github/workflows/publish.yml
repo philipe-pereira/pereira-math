@@ -28,8 +28,8 @@ jobs:
           
       - name: Verify
         run: mvn -B -ntp verify
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish package
         run: mvn -B -ntp deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
